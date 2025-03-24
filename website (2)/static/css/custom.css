@@ -1,0 +1,172 @@
+.navbar-brand i {
+    color: var(--bs-primary);
+    margin-right: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#supportedSites i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.site-icon {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.site-icon:hover {
+    background-color: var(--bs-gray-800);
+    transform: translateY(-5px);
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(-5px); }
+    50% { transform: translateY(-8px); }
+}
+
+.site-icon span {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.site-icon:hover span {
+    opacity: 1;
+}
+
+.video-preview-container {
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.video-preview-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.video-preview-container:hover .play-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.play-overlay i {
+    font-size: 3rem;
+    color: var(--bs-primary);
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+}
+
+.play-overlay i:hover {
+    transform: scale(1.1);
+}
+
+#videoThumbnail {
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 0.5rem;
+    transition: filter 0.3s ease;
+}
+
+.video-preview-container:hover #videoThumbnail {
+    filter: brightness(0.7);
+}
+
+/* Ad Container Styles */
+.ad-container {
+    min-height: 90px;
+    background-color: var(--bs-gray-800);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.ad-placeholder {
+    color: var(--bs-gray-600);
+    font-size: 0.9rem;
+}
+
+/* Loading animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner-border {
+    animation: spin 1s linear infinite;
+}
+
+/* Button animations */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Form transitions */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    transform: scale(1.02);
+}
+
+/* Modal animations */
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: scale(0.95);
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+/* Add to the end of the file */
+#inlineVideoPlayer {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#inlineVideoPlayer:not(.d-none) {
+    opacity: 1;
+}
+
+.video-info-appear {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

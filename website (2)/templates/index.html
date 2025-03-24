@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Ad Container - Top of Content -->
+<div class="container my-3 text-center ad-container">
+    <!-- AdSense Ad Unit - Replace with your ad code when approved -->
+    <div class="ad-placeholder">Advertisement</div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="text-center mb-4">
+            <h1 class="display-4">Download Social Media Videos</h1>
+            <p class="lead">Download videos from YouTube, Instagram, Facebook, and more!</p>
+        </div>
+
+        <div class="card bg-dark mb-4">
+            <div class="card-body">
+                <form id="downloadForm" class="mb-3">
+                    <div class="input-group">
+                        <input type="url" class="form-control" id="videoUrl" 
+                               placeholder="Paste video URL here" required>
+                        <button class="btn btn-primary" type="submit" id="fetchBtn">
+                            <i class="bi bi-search"></i> Fetch Video
+                        </button>
+                    </div>
+                </form>
+
+                <div id="supportedSites" class="d-flex justify-content-center gap-3 mt-3">
+                    <!-- Supported sites will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="text-center d-none">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Error Alert -->
+        <div id="errorAlert" class="alert alert-danger d-none" role="alert"></div>
+
+        <!-- Video Information Card -->
+        <div id="videoInfo" class="card bg-dark d-none">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="video-preview-container" style="cursor: pointer;" title="Click to play video">
+                            <img id="videoThumbnail" class="img-fluid rounded" alt="Video thumbnail">
+                            <div class="play-overlay">
+                                <i class="bi bi-play-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h5 id="videoTitle" class="card-title"></h5>
+                        <p id="videoDuration" class="card-text"></p>
+                        <select id="formatSelect" class="form-select mb-3">
+                            <option value="">Select quality</option>
+                        </select>
+                        <button id="downloadBtn" class="btn btn-success w-100" style="display: none;">
+                            <i class="bi bi-download"></i> Download
+                        </button>
+                        <div id="downloadOptions" class="mt-3 d-none text-center">
+                            <button class="btn btn-primary me-2 download-type" data-type="video">
+                                <i class="bi bi-camera-video"></i> Video with Audio
+                            </button>
+                            <button class="btn btn-info download-type" data-type="audio">
+                                <i class="bi bi-music-note"></i> Audio Only
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inline Video Player Container -->
+                <div id="inlineVideoPlayer" class="mt-4 d-none">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="videoPlayer" src="" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Container - Bottom of Content -->
+        <div class="container my-4 text-center ad-container">
+            <!-- AdSense Ad Unit -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9817768729969249"
+                 data-ad-slot="REPLACE_WITH_YOUR_AD_SLOT"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock %}
